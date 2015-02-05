@@ -123,12 +123,18 @@ namespace MacroSoundBoard
 
         private void vac_cp_launch_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Settings.Default.vac_directory + @"\vcctlpan.exe");
+            if (Properties.Settings.Default.vac_directory.Length > 0)
+            {
+                System.Diagnostics.Process.Start(Properties.Settings.Default.vac_directory + @"\vcctlpan.exe");
+            }   
         }
 
         private void vac_ar_launch_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Properties.Settings.Default.vac_directory + @"\audiorepeater.exe");
+            if (Properties.Settings.Default.vac_directory.Length > 0)
+            {
+                System.Diagnostics.Process.Start(Properties.Settings.Default.vac_directory + @"\audiorepeater.exe");
+            }
         }
 
         private void realmic_name_SelectedIndexChanged(object sender, EventArgs e)
