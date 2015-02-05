@@ -298,7 +298,7 @@
             this.MinimumSize = new System.Drawing.Size(425, 344);
             this.Name = "SoundBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sound Board";
+            this.Text = "Macro Sound Board";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundBoard_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SoundBoard_FormClosed);
