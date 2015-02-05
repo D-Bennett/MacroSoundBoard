@@ -19,7 +19,6 @@ namespace MacroSoundBoard
         Process pid_ar_1 = null;
         Process pid_ar_2 = null;
         Process pid_ar_3 = null;
-        NotifyIcon ni;
         public SoundBoard()
         {
             InitializeComponent();
@@ -217,6 +216,7 @@ namespace MacroSoundBoard
             ar_2.Text = (pid_ar_2 != null) ? "Running (Pid: " + pid_ar_2.Id + ")" : "Not running";
             ar_3.Text = (pid_ar_3 != null) ? "Running (Pid: " + pid_ar_3.Id + ")" : "Not running";
             toggle_ar.Text = isRunning ? "Stop" : "Start";
+            menuItem_toggle.Text = isRunning ? "Stop" : "Start";
         }
 
         private static Process PipeAudio(string inDevice, string outDevice, int bufferMs, bool isHighPriority = false)
@@ -235,6 +235,34 @@ namespace MacroSoundBoard
         private void SoundBoard_FormClosed(object sender, FormClosedEventArgs e)
         {
             stopVAC();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void menuItem_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SoundBoard_Resize(object sender, EventArgs e)
+        {
+            notifyIcon1.BalloonTipTitle = "Macro Sound Board";
+            notifyIcon1.BalloonTipText = "Macro Sound Board is running in the background...";
+
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(200);
+                this.Hide();
+            }
+            else if (this.WindowState == FormWindowState.Normal)
+            {
+                notifyIcon1.Visible = false;
+            }
         }
     }
 }
