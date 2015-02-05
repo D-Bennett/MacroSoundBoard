@@ -22,6 +22,7 @@ namespace MacroSoundBoard
         public SoundBoard()
         {
             InitializeComponent();
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
         private void SoundBoard_Load(object sender, EventArgs e)
@@ -262,6 +263,7 @@ namespace MacroSoundBoard
             else if (this.WindowState == FormWindowState.Normal)
             {
                 notifyIcon1.Visible = false;
+                this.ShowInTaskbar = true;
             }
         }
     }

@@ -275,26 +275,32 @@
             this.ar_group.TabIndex = 20;
             this.ar_group.TabStop = false;
             this.ar_group.Text = "Audio Repeater Processes";
-            //
-            // contextMenu1
-            //
-            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] { this.menuItem_exit, this.menuItem_toggle });
-
-            this.menuItem_toggle.Index = 0;
-            this.menuItem_toggle.Text = "Start";
-            this.menuItem_toggle.Click += new System.EventHandler(this.toggle_ar_Click);
-
-            this.menuItem_exit.Index = 1;
-            this.menuItem_exit.Text = "Exit";
-            this.menuItem_exit.Click += new System.EventHandler(this.menuItem_exit_Click);
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.ContextMenu = this.contextMenu1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Macro Sound Board";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.ContextMenu = this.contextMenu1;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenu1
+            // 
+            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem_exit,
+            this.menuItem_toggle});
+            // 
+            // menuItem_exit
+            // 
+            this.menuItem_exit.Index = 0;
+            this.menuItem_exit.Text = "Exit";
+            this.menuItem_exit.Click += new System.EventHandler(this.menuItem_exit_Click);
+            // 
+            // menuItem_toggle
+            // 
+            this.menuItem_toggle.Index = 1;
+            this.menuItem_toggle.Text = "Start";
+            this.menuItem_toggle.Click += new System.EventHandler(this.toggle_ar_Click);
             // 
             // SoundBoard
             // 
@@ -322,9 +328,9 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(425, 344);
             this.Name = "SoundBoard";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Macro Sound Board";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundBoard_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SoundBoard_FormClosed);
             this.Load += new System.EventHandler(this.SoundBoard_Load);
