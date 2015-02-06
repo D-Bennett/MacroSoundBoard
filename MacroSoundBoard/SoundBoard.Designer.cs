@@ -51,8 +51,8 @@
             this.vac_folder_l = new System.Windows.Forms.Label();
             this.vlc_folder_l = new System.Windows.Forms.Label();
             this.ar_group = new System.Windows.Forms.GroupBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.trayIconMenu = new System.Windows.Forms.ContextMenu();
             this.menuItem_exit = new System.Windows.Forms.MenuItem();
             this.menuItem_toggle = new System.Windows.Forms.MenuItem();
             this.ar_group.SuspendLayout();
@@ -276,17 +276,17 @@
             this.ar_group.TabStop = false;
             this.ar_group.Text = "Audio Repeater Processes";
             // 
-            // notifyIcon1
+            // trayIcon
             // 
-            this.notifyIcon1.ContextMenu = this.contextMenu1;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Macro Sound Board";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.trayIcon.ContextMenu = this.trayIconMenu;
+            this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
+            this.trayIcon.Text = "Macro Sound Board";
+            this.trayIcon.Visible = true;
+            this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.trayIcon_MouseDoubleClick);
             // 
-            // contextMenu1
+            // trayIconMenu
             // 
-            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.trayIconMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem_exit,
             this.menuItem_toggle});
             // 
@@ -365,8 +365,8 @@
         private System.Windows.Forms.Label vac_folder_l;
         private System.Windows.Forms.Label vlc_folder_l;
         private System.Windows.Forms.GroupBox ar_group;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ContextMenu contextMenu1;
+        private System.Windows.Forms.NotifyIcon trayIcon;
+        private System.Windows.Forms.ContextMenu trayIconMenu;
         private System.Windows.Forms.MenuItem menuItem_exit;
         private System.Windows.Forms.MenuItem menuItem_toggle;
     }

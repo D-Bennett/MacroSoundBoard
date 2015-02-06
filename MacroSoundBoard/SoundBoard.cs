@@ -238,7 +238,7 @@ namespace MacroSoundBoard
             stopVAC();
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void trayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
@@ -251,18 +251,18 @@ namespace MacroSoundBoard
 
         private void SoundBoard_Resize(object sender, EventArgs e)
         {
-            notifyIcon1.BalloonTipTitle = "Macro Sound Board";
-            notifyIcon1.BalloonTipText = "Macro Sound Board is running in the background...";
+            trayIcon.BalloonTipTitle = "Macro Sound Board";
+            trayIcon.BalloonTipText = "Macro Sound Board is running in the background...";
 
             if (this.WindowState == FormWindowState.Minimized)
             {
-                notifyIcon1.Visible = true;
-                notifyIcon1.ShowBalloonTip(200);
+                trayIcon.Visible = true;
+                trayIcon.ShowBalloonTip(200);
                 this.Hide();
             }
             else if (this.WindowState == FormWindowState.Normal)
             {
-                notifyIcon1.Visible = false;
+                trayIcon.Visible = false;
                 this.ShowInTaskbar = true;
             }
         }
