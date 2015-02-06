@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundBoard));
             this.vac_folder_btn = new System.Windows.Forms.Button();
             this.vac_folder_tb = new System.Windows.Forms.TextBox();
@@ -50,6 +51,10 @@
             this.vac_folder_l = new System.Windows.Forms.Label();
             this.vlc_folder_l = new System.Windows.Forms.Label();
             this.ar_group = new System.Windows.Forms.GroupBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.menuItem_exit = new System.Windows.Forms.MenuItem();
+            this.menuItem_toggle = new System.Windows.Forms.MenuItem();
             this.ar_group.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -271,6 +276,32 @@
             this.ar_group.TabStop = false;
             this.ar_group.Text = "Audio Repeater Processes";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenu = this.contextMenu1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Macro Sound Board";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenu1
+            // 
+            this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem_exit,
+            this.menuItem_toggle});
+            // 
+            // menuItem_exit
+            // 
+            this.menuItem_exit.Index = 0;
+            this.menuItem_exit.Text = "Exit";
+            this.menuItem_exit.Click += new System.EventHandler(this.menuItem_exit_Click);
+            // 
+            // menuItem_toggle
+            // 
+            this.menuItem_toggle.Index = 1;
+            this.menuItem_toggle.Text = "Start";
+            this.menuItem_toggle.Click += new System.EventHandler(this.toggle_ar_Click);
+            // 
             // SoundBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,12 +328,13 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(425, 344);
             this.Name = "SoundBoard";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sound Board";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Text = "Macro Sound Board";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoundBoard_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SoundBoard_FormClosed);
             this.Load += new System.EventHandler(this.SoundBoard_Load);
+            this.Resize += new System.EventHandler(this.SoundBoard_Resize);
             this.ar_group.ResumeLayout(false);
             this.ar_group.PerformLayout();
             this.ResumeLayout(false);
@@ -333,6 +365,10 @@
         private System.Windows.Forms.Label vac_folder_l;
         private System.Windows.Forms.Label vlc_folder_l;
         private System.Windows.Forms.GroupBox ar_group;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenu contextMenu1;
+        private System.Windows.Forms.MenuItem menuItem_exit;
+        private System.Windows.Forms.MenuItem menuItem_toggle;
     }
 }
 
